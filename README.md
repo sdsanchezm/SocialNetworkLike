@@ -27,7 +27,9 @@
 - Allows to filter posts from all users
 - Allows to filter posts from followed users
 
+##### Data model
 
+<img src="./assets/n7.png" width="600">
 
 ### Pending improvements
 
