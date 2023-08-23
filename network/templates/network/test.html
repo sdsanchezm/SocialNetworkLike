@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>fetch with react hooks</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <style>
+        .title {
+          color: green;
+        }
+
+        .squares1 {
+            background-color:grey;
+        }
+    </style>
+</head>
+<body>
+<h1 class="title">fetch</h1>
+<hr>
+<br>
+<div id="container">
+  <div id="app"></div>
+</div>
+
+<script type="text/babel">
+
+    function Square(props) {
+        return (
+            <button className="squares1" onClick={props.onClick}>
+                {props.name}
+            </button>
+        );
+    }
+
+    function ButtonSuper(props){
+        return(
+            <Square
+                name={props.name}
+                onClick={(e) => props.onClick(e)}
+            />
+        );
+    }
+
+  function App(){
+
+      // Creating states
+    const [title, setTitle] = React.useState("");
+    const [body, setBody] = React.useState("");
+    const [author, setAuthor] = React.useState("jamecho");
+    const [isPending, setIsPending] = React.useState(false);
+    const [t1, setT1] = React.useState("initialHere");
+
+    // handling data and reqeust to the api
+    function handleSubmit(e){
+        e.preventDefault();
+
+        console.log(`asd: ${t1}`);
+        console.log("");
+        const blog = { title, body, author };
+
+        setIsPending(true);
+
+        const optionsPost = {
+            method: 'POST',
+            headers: { 
+                "Content-Type": "application/json",
+                'Accept': '*/*',
+                'Accept-Encoding': 'gzip, deflate, br',
+                'Connection': 'keep-alive'
+            },
+            body: JSON.stringify(blog)
+        }
+
+        console.log(blog);
+
+        fetch('http://127.0.0.1:8000/test', optionsPost)
+        .then(() => {
+            console.log("blog here...");
+            setIsPending(false);
+        })
+        .catch(e => {
+            console.log("error: ", e);
+        })
+
+
+    }
+
+    function handleSubmit2(e){
+        console.log("this is handleSubmit2");
+    }
+
+    // returning components
+    return (
+      <div className="form">
+        <form onSubmit={handleSubmit}>
+            <input type="text" value={title} onChange={ e => setTitle(e.target.value) } />
+            <textarea value={body} onChange={ e => setBody(e.target.value) }></textarea>
+            <select 
+                value={author}
+                onChange={ e => setAuthor(e.target.value)}
+                >
+                    <option value="amparo" >Amparo</option>
+                    <option value="jara" >Jara</option>
+            </select>
+            { !isPending && <button>Add Blog</button>}
+            { isPending && <button disabled>Pending...</button>}
+        </form>
+
+        <Square
+            name="asd"
+            onClick={(e) => handleSubmit2(e)}
+        />
+        <ButtonSuper
+            name="qwe"
+            // value={t1}
+            // onKey={e => setT1(e.target.value)}
+            // onClick={(e) => {setT1("xxx"); handleSubmit2(e);}}
+            onClick={ (e) => handleSubmit2(e) }
+        />
+      </div>
+    )
+
+  }
+
+  ReactDOM.render(<App />, document.querySelector('#app'))
+</script>
+
+</body>
+</html>

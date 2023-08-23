@@ -1,0 +1,30 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+
+    <h2>Login</h2>
+
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+
+    <div class="card col-6 align-self-center shadow shadow-dark my-4 bg-light">
+        <div class="card-body py-4">
+            <form action="{% url 'login' %}" method="post">
+                {% csrf_token %}
+                <div class="form-group py-2">
+                    <input autofocus class="form-control" type="text" name="username" placeholder="Username">
+                </div>
+                <div class="form-group py-2">
+                    <input class="form-control" type="password" name="password" placeholder="Password">
+                </div>
+                <input class="btn btn-primary py-2" type="submit" value="Login">
+            </form>
+        </div>
+    </div>
+
+    <span class="py-4 my-4">
+    Don't have an account? <a href="{% url 'register' %}">Register here.</a>
+</span>
+
+{% endblock %}

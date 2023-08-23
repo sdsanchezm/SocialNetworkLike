@@ -1,0 +1,110 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <!-- <h1>test</h1> -->
+
+    <!-- <div id="profile">
+        <div class="row pb-3">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body px-4 mx-4">
+                        <p class="text-left">
+                            <span class="align-middle display-4">davs  </span>
+                            <button class="btn btn-success">Following</button>
+                        </p>
+                        <p> <span>Followers: 21 </span> | <span>Followers: 21 </span> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+    <!-- <div id="newpost">
+        <div class="row pb-3">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="pt-4 px-4 mb-0 pb-0">
+                            <textarea name="post" id="" class="col-12 p-2 m-1 border-secondary" rows="3"></textarea>
+                        </p>
+                        <p class="text-right pt-1 m-1 pr-3 pt-0">
+                            <button class="btn btn-success">post</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- <div id="post">
+        <div class="row pb-2">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body px-4">
+                        <p class="text px-4">Ferraris are what dreams are made of. Fast, sexy, and highly exclusive, these Italian supercars push the boundaries of performance and cause a stir wherever they go. The sensually styled Roma coupe is the most accessible in terms of price, but even it is far too expensive for most people.</p>
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="row mx-4 px-0">
+                            <div class="col-6 px-0">
+                                <p class="text-left mb-0">
+                                    <span class="align-middle">Poster: davs | </span>
+                                    <span class="align-middle">Date: 12 Mar, 1945, 01:00PM </span>
+                                </p>
+                            </div>
+                            <div class="col-6 px-0">
+                                <p class="text-right mb-0">
+                                    <span><button class="btn btn-sm btn-primary">Edit</button></span>
+                                    <span><button class="btn btn-sm btn-danger">Like</button></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div id="app"></div>
+
+    <!-- <div id="pagination">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+              <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+              </li>
+            </ul>
+          </nav>
+    </div> -->
+
+    <!-- <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+      </nav> -->
+
+
+{% endblock %}
+{% block script %}
+
+<script type="text/babel" src="{% static 'network/network.js' %}">
+    // code in file 
+</script>
+
+    <script src="{% static 'network/network.js' %}"></script>
+    <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+{% endblock %}
